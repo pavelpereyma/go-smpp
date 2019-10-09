@@ -1,7 +1,3 @@
-// Copyright 2015 go-smpp authors. All rights reserved.
-// Use of this source code is governed by a BSD-style license that can be
-// found in the LICENSE file.
-
 package pdutext
 
 import (
@@ -9,16 +5,16 @@ import (
 	"golang.org/x/text/transform"
 )
 
-// GSM 7-bit (unpacked)
-type GSM7 []byte
+// FlashSMS flash
+type FlashSMS []byte
 
 // Type implements the Codec interface.
-func (s GSM7) Type() DataCoding {
-	return DefaultType
+func (s FlashSMS) Type() DataCoding {
+	return 0xc0
 }
 
 // Encode to GSM 7-bit (unpacked)
-func (s GSM7) Encode() []byte {
+func (s FlashSMS) Encode() []byte {
 	e := encoding.GSM7(false).NewEncoder()
 	es, _, err := transform.Bytes(e, s)
 	if err != nil {
@@ -28,7 +24,7 @@ func (s GSM7) Encode() []byte {
 }
 
 // Decode from GSM 7-bit (unpacked)
-func (s GSM7) Decode() []byte {
+func (s FlashSMS) Decode() []byte {
 	e := encoding.GSM7(false).NewDecoder()
 	es, _, err := transform.Bytes(e, s)
 	if err != nil {

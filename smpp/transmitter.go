@@ -15,10 +15,10 @@ import (
 	"sync/atomic"
 	"time"
 
-	"github.com/fiorix/go-smpp/smpp/pdu"
-	"github.com/fiorix/go-smpp/smpp/pdu/pdufield"
-	"github.com/fiorix/go-smpp/smpp/pdu/pdutext"
-	"github.com/fiorix/go-smpp/smpp/pdu/pdutlv"
+	"github.com/pavelpereyma/go-smpp/smpp/pdu"
+	"github.com/pavelpereyma/go-smpp/smpp/pdu/pdufield"
+	"github.com/pavelpereyma/go-smpp/smpp/pdu/pdutext"
+	"github.com/pavelpereyma/go-smpp/smpp/pdu/pdutlv"
 )
 
 // ErrMaxWindowSize is returned when an operation (such as Submit) violates
@@ -182,7 +182,7 @@ type ShortMessage struct {
 	Register pdufield.DeliverySetting
 
 	// Other fields, normally optional.
-	TLVFields			 pdutlv.Fields
+	TLVFields            pdutlv.Fields
 	ServiceType          string
 	SourceAddrTON        uint8
 	SourceAddrNPI        uint8
